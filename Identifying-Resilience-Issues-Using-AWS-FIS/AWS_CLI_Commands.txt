@@ -2,12 +2,18 @@
   fis-role-trust-policy.json
   fis-role-permissions-policy.json
   
-  If working in the CloudShell, you can run the following commands to download these files to your Chouldshell environment: 
+  From the AWS CloudShell, run the following commands to download these files to your Chouldshell environment: 
+  wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-chaos-engineering-aws-fault-injection-simulator/main/Identifying-Resilience-Issues-Using-AWS-FIS/fis-role-permissions-policy.json
   
-2) After downloading the 2 files. Create an experiment role and add a trust policy:
+  wget https://raw.githubusercontent.com/ACloudGuru-Resources/content-chaos-engineering-aws-fault-injection-simulator/main/Identifying-Resilience-Issues-Using-AWS-FIS/fis-role-trust-policy.json
+  
+  
+2) After downloading the 2 files. In the CloudShell, run the following commmand to create an experiment role and add a trust policy:
 
 aws iam create-role --role-name my-fis-role --assume-role-policy-document file://fis-role-trust-policy.json
 
-3) Add a permissions policy to the role you just created:
+3) Finally add a permissions policy to the role you just created:
 
 aws iam put-role-policy --role-name my-fis-role --policy-name my-fis-policy --policy-document file://fis-role-permissions-policy.json
+
+These steps will give AWS FIS the permissions required to perfom the experiments that we are going to run during the lab, e.g. it will allow it to reboot, stop and terminate EC2 instances.
