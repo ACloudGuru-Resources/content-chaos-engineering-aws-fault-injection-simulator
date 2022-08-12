@@ -1,0 +1,13 @@
+1) Download the following 2 files to your working directory, it is easiest to work in the AWS CloudShell to get this done:
+  fis-role-trust-policy.json
+  fis-role-permissions-policy.json
+  
+  If working in the CloudShell, you can run the following commands to download these files to your Chouldshell environment: 
+  
+2) After downloading the 2 files. Create an experiment role and add a trust policy:
+
+aws iam create-role --role-name my-fis-role --assume-role-policy-document file://fis-role-trust-policy.json
+
+3) Add a permissions policy to the role you just created:
+
+aws iam put-role-policy --role-name my-fis-role --policy-name my-fis-policy --policy-document file://fis-role-permissions-policy.json
