@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowFISExperimentRoleEC2Actions",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:RebootInstances",
+                "ec2:StopInstances",
+                "ec2:StartInstances",
+                "ec2:TerminateInstances"
+            ],
+            "Resource": "arn:aws:ec2:*:*:instance/*"
+        },
+        {
+            "Sid": "AllowFISExperimentRoleSpotInstanceActions",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:SendSpotInstanceInterruptions"
+            ],
+            "Resource": "arn:aws:ec2:*:*:instance/*"
+        }
+    ]
+}
